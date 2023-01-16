@@ -15,6 +15,14 @@ document.addEventListener("DOMContentLoaded",function() {
     })
   }
 
+// The below monitors if certain key was pressed.
+// In this case the enter key
+  document.getElementById("answer-box").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      checkAnswer();
+    }
+  })
+
   runGame("addition")
 
 })
@@ -25,6 +33,11 @@ document.addEventListener("DOMContentLoaded",function() {
 * and after the users answer has been precessed
 */
 function runGame(gameType) {
+
+document.getElementById("answer-box").value = "";
+document.getElementById("answer-box").focus();
+// The above relates to "Setting the focus" were the cursor starts in the box that the user has to input
+
   // reates two random numbers between 1 and 25
   let num1 = Math.floor(Math.random() * 25) + 1;
   let num2 = Math.floor(Math.random() * 25) + 1;
